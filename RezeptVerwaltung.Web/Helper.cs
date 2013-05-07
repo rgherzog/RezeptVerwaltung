@@ -42,7 +42,7 @@ namespace RezeptVerwaltung.Web
 
 		public static int? FindIdOnDynamicNewControl(TextBox zutatCtrl)
 		{
-			var idStr = zutatCtrl.ID.Remove(0, REZEPBEARBEITEN_IDENT_ZUTAT.Length + Helper.REZEPBEARBEITEN_IDENT_NEU.Length);
+            var idStr = zutatCtrl.ID.Remove(0, REZEPBEARBEITEN_IDENT_ZUTAT.Length + Helper.REZEPBEARBEITEN_IDENT_NEU.Length + Helper.REZEPBEARBEITEN_IDENT_REZEPABTEILUNG_PANEL.Length + Helper.REZEPBEARBEITEN_IDENT_NEU.Length);
 
 			int id;
 			if (Int32.TryParse(idStr, out id))
