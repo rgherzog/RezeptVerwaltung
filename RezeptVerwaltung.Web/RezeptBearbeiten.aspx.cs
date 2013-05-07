@@ -456,7 +456,6 @@ namespace RezeptVerwaltung.Web
 		{
 			Response.Redirect("RezeptDetail.aspx?RezeptID=" + RezeptIdForEditing);
 			Session.Remove(RezeptBild);
-
 		}
 
 
