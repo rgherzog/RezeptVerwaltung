@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RezeptVerwaltung.DataAccess", "RezeptVerwaltung.DataAccess\RezeptVerwaltung.DataAccess.csproj", "{71420477-3D2B-461D-A6BB-410B13282C15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RezeptVerwaltung.Web", "RezeptVerwaltung.Web\RezeptVerwaltung.Web.csproj", "{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://cubidotfs:8080/tfs/cubidocollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = RezeptVerwaltung.Web\\RezeptVerwaltung.Web.csproj
+		SccProjectName1 = RezeptVerwaltung.Web
+		SccLocalPath1 = RezeptVerwaltung.Web
+		SccProjectUniqueName2 = RezeptVerwaltung.DataAccess\\RezeptVerwaltung.DataAccess.csproj
+		SccProjectName2 = RezeptVerwaltung.DataAccess
+		SccLocalPath2 = RezeptVerwaltung.DataAccess
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{71420477-3D2B-461D-A6BB-410B13282C15}.Release|x86.ActiveCfg = Release|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{09FD7DA7-E51D-4FF0-9719-DAB1A2AFE4CA}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
