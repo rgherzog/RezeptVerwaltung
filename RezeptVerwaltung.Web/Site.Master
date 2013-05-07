@@ -1,8 +1,9 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="RezeptVerwaltung.Web.SiteMaster" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html/>
+<html>
 <head runat="server">
+    <meta charset="utf-8" />
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/RezeptStyle.css" rel="stylesheet" type="text/css" />
@@ -12,12 +13,10 @@
 <body>
     <form runat="server">
     <div class="page">
-        <div class="header">
-            <div class="title">
-                <h1>
-                    Rezept Verwaltung
-                </h1>
-            </div>
+        <header>
+            <h1>
+                Rezept Verwaltung
+            </h1>
             <!--<div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
@@ -39,16 +38,16 @@
                     </Items>
                 </asp:Menu>
             </div>
-        </div>
-        <div class="main">
+        </header>
+        <article>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
-        </div>
+        </article>
         <div class="clear">
         </div>
     </div>
-    <div class="footer">
+    <footer>
         
-    </div>
+    </footer>
     </form>
 </body>
 </html>
