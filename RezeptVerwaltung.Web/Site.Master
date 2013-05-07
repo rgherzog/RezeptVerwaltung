@@ -5,14 +5,13 @@
 <head runat="server">
     <meta charset="utf-8" />
     <title></title>
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Styles/RezeptStyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Styles/Site.css" media="screen" />
+    <link rel="stylesheet" href="~/Styles/RezeptStyle.css" media="screen" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form runat="server">
-    <div class="page">
+    <form runat="server" class="page">
         <header>
             <h1>
                 Rezept Verwaltung
@@ -28,7 +27,7 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>-->
-            <div class="clear hideSkiplink">
+            <nav>
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/RezeptSuche.aspx" Text="Rezept Suchen"/>
@@ -37,17 +36,14 @@
                         <asp:MenuItem NavigateUrl="~/Kategorien.aspx" Text="Kategorien"/>
                     </Items>
                 </asp:Menu>
-            </div>
+            </nav>
         </header>
         <article>
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </article>
-        <div class="clear">
-        </div>
-    </div>
-    <footer>
+        <footer>
         
-    </footer>
+        </footer>
     </form>
 </body>
 </html>
