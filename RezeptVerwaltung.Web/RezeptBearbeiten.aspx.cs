@@ -490,6 +490,7 @@ namespace RezeptVerwaltung.Web
 				{
 					rezept.Bild = bild;
 				}
+                Session.Remove(RezeptBild);
 
 				//Einheit speichern
 				rezept.EinheitID = Int32.Parse(DropDownList_AnzahlEinheit.SelectedItem.Value);
