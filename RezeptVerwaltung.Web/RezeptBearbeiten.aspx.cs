@@ -11,8 +11,8 @@ namespace RezeptVerwaltung.Web
 	public partial class RezeptBearbeiten : Page
 	{
 		private const string RezeptBild = "RezeptBild";
-		private const int RezeptNameFeldBreite = 200;
-		private const int RezeptMengeFeldBreite = 30;
+		private const int RezeptNameFeldBreite = 220;
+		private const int RezeptMengeFeldBreite = 60;
 		private const int RezeptabteilungFeldBreite = 400;
 
 		private int rezeptIdForEditing;

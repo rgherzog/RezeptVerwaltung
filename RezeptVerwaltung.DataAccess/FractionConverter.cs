@@ -67,19 +67,32 @@ namespace RezeptVerwaltung.DataAccess
 
 		public static decimal Convert(string value)
 		{
-			if (value.Contains("/"))
-			{
-				var zn = value.Split('/');
-				var zählerStr = zn[0];
-				var nennerStr = zn[1];
-				var zähler = decimal.Parse(zählerStr);
-				var nenner = decimal.Parse(nennerStr);
+            string workValue = value;
 
-				return zähler / nenner;
-			}
-			if (!string.IsNullOrEmpty(value))
+            //get the whole value of the fraction
+            decimal mWhole = 0;            
+            if(workValue.Contains(" "))
+            {
+                var workValueSplit = workValue.Split(' ');
+                decimal.TryParse(workValueSplit[0], out mWhole);
+
+                //remove whole value of value
+                workValue = workValueSplit[1];
+            }
+
+            if (workValue.Contains("/"))
 			{
-				return decimal.Parse(value);
+                var fraction = workValue.Split('/');
+                var mNumerator = decimal.Parse(fraction[0]);
+                var mDenomenator = decimal.Parse(fraction[1]);
+
+                return mNumerator / mDenomenator + mWhole;
+			}
+            if (!string.IsNullOrEmpty(workValue))
+			{
+                decimal parsedWorkValue;
+                decimal.TryParse(workValue, out parsedWorkValue);
+                return parsedWorkValue;
 			}
 
 			return -1;
