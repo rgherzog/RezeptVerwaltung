@@ -34,10 +34,6 @@ namespace <#= code.EscapeNamespace(efHost.Namespace) #>
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-			//2013-05-07: Setting precision for decimal fields (previously 0.125 was truncated to 0.12)
-			modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeVon).HasPrecision(10, 4);
-            modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeBis).HasPrecision(10, 4);
-
 <#
     foreach (var set in efHost.EntityContainer.BaseEntitySets.OfType<EntitySet>())
     {
@@ -46,6 +42,9 @@ namespace <#= code.EscapeNamespace(efHost.Namespace) #>
 <#
     }
 #>
+			//2013-05-07: Setting precision for decimal fields (previously 0.125 was truncated to 0.12)
+			modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeVon).HasPrecision(10, 4);
+            modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeBis).HasPrecision(10, 4);
         }
     }
 }

@@ -25,16 +25,15 @@ namespace RezeptVerwaltung.DataAccess.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-			//2013-05-07: Setting precision for decimal fields (previously 0.125 was truncated to 0.12)
-			modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeVon).HasPrecision(10, 4);
-            modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeBis).HasPrecision(10, 4);
-
             modelBuilder.Configurations.Add(new EinheitMap());
             modelBuilder.Configurations.Add(new KategorieMap());
             modelBuilder.Configurations.Add(new RezeptMap());
             modelBuilder.Configurations.Add(new RezeptabteilungMap());
             modelBuilder.Configurations.Add(new RezeptZutatMap());
             modelBuilder.Configurations.Add(new ZutatMap());
+			//2013-05-07: Setting precision for decimal fields (previously 0.125 was truncated to 0.12)
+			modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeVon).HasPrecision(10, 4);
+            modelBuilder.Entity<RezeptZutat>().Property(d => d.MengeBis).HasPrecision(10, 4);
         }
     }
 }
