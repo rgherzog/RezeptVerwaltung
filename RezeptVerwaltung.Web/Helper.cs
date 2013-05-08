@@ -108,5 +108,21 @@ namespace RezeptVerwaltung.Web
 
             return null;
         }
+
+
+        /// <summary>
+        /// encloses there parameter with <div></div>
+        /// </summary>
+        /// <param name="value">the string to be enclosed</param>
+        /// <returns></returns>
+        public static string DivPrependAppend(string value)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<div>");
+            sb.Append(value);
+            sb.Append("</div>");
+
+            return sb.ToString();
+        }
     }
 }

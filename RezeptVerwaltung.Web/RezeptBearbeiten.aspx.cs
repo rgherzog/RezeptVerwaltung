@@ -12,7 +12,8 @@ namespace RezeptVerwaltung.Web
 	{
 		private const string RezeptBild = "RezeptBild";
 		private const int RezeptNameFeldBreite = 220;
-		private const int RezeptMengeFeldBreite = 60;
+		private const int RezeptMengeFeldBreite = 80;
+        private const int RezeptEinheitFeldBreite = 100;
 		private const int RezeptabteilungFeldBreite = 400;
 
 		private int rezeptIdForEditing;
@@ -163,11 +164,11 @@ namespace RezeptVerwaltung.Web
 			var zutatenNachRezeptAbteilungList = zutatenNachRezeptAbteilung.ToList();
 			for (int i = 1; i <= zutatenNachRezeptAbteilungList.Count(); i++)
 			{
-				this.DisplaySingleRezeptabteilung(db, zutatenNachRezeptAbteilungList[i-1].Key.RezeptZutats, setValues);
+				this.DisplaySingleRezeptabteilung(db, zutatenNachRezeptAbteilungList[i-1].Key.RezeptZutats, setValues, i);
 			}
 
             //Zutaten ohne Rezeptabteilung anzeigen
-            this.DisplaySingleRezeptabteilung(db, zutatenOhneRezeptAbteilung, setValues);
+            this.DisplaySingleRezeptabteilung(db, zutatenOhneRezeptAbteilung, setValues, -1);
 
             //Neue Rezeptabteilungen anzeigen
             for (int i = 1; i <= ViewStateRezeptAbteilungPanelAnzahl; i++)
@@ -184,7 +185,7 @@ namespace RezeptVerwaltung.Web
 		/// <param name="rezeptZutatenList"></param>
 		/// <param name="rezepAbteilungNumber">Number of the displayed rezeptpalen - needed for numbering the panels</param>
 		/// <param name="setValues"></param>
-		private void DisplaySingleRezeptabteilung(rherzog_70515_rzvwContext db, ICollection<RezeptZutat> rezeptZutatenList, bool setValues)
+		private void DisplaySingleRezeptabteilung(rherzog_70515_rzvwContext db, ICollection<RezeptZutat> rezeptZutatenList, bool setValues, int rezeptAbteilungNr)
 		{
 			if (rezeptZutatenList.GroupBy(d=>d.Rezeptabteilung).Count() > 1)
 				new ArgumentException("The parameter rezeptZutatenList contains more than one than one RezeptAbteilung. You must provide a list of RezeptZutaten that all have the same RezeptAbteilung or all have no RezeptAbteilung at all");
@@ -197,7 +198,7 @@ namespace RezeptVerwaltung.Web
 				var rezeptAbteilungPanel = CreateAndAddRezeptAbteilungPanel(rezeptZutatFirst, null);
 
 				//Rezeptabteilung anzeigen (leer, wenn keine Rezeptabteilung zugewiesen ist)
-				this.DisplayRezeptabteilungTextbox(rezeptZutatFirst.Rezeptabteilung, rezeptAbteilungPanel, null);
+				this.DisplayRezeptabteilungTextbox(rezeptZutatFirst.Rezeptabteilung, rezeptAbteilungPanel, null, rezeptAbteilungNr);
 
 				//Zutaten anzeigen
 				DisplayExistingZutatenForRezeptabteilung(db, rezeptZutatenList, rezeptAbteilungPanel, setValues);
@@ -219,7 +220,7 @@ namespace RezeptVerwaltung.Web
             var rezeptAbteilungPanel = CreateAndAddRezeptAbteilungPanel(null, (int)panelNumber);
 
             //Rezeptabteilung anzeigen (leer, wenn keine Rezeptabteilung zugewiesen ist)
-            this.DisplayRezeptabteilungTextbox(null, rezeptAbteilungPanel, panelNumber);
+            this.DisplayRezeptabteilungTextbox(null, rezeptAbteilungPanel, panelNumber, -1);
 
             //Leere Zutatenliste anzeigen
             DisplayNeueZutatentenListe(rezeptAbteilungPanel, false);
@@ -255,9 +256,8 @@ namespace RezeptVerwaltung.Web
 		/// <summary>
 		/// Display the give Rezeptabteilung
 		/// </summary>
-        private void DisplayRezeptabteilungTextbox(Rezeptabteilung rezeptAbteilung, Panel rezeptAbteilungPanel, int? panelNumber)
+        private void DisplayRezeptabteilungTextbox(Rezeptabteilung rezeptAbteilung, Panel rezeptAbteilungPanel, int? panelNumber, int rezeptAbteilungNr)
 		{
-			var label = new Label {Text = "<br/>"};
 			var textbox = new TextBox { Width = RezeptabteilungFeldBreite };
 
 			if (rezeptAbteilung == null)
@@ -271,7 +271,13 @@ namespace RezeptVerwaltung.Web
 				textbox.ID = Helper.REZEPBEARBEITEN_IDENT_REZEPABTEILUNG + rezeptAbteilung.ID;
 				textbox.Text = rezeptAbteilung.Name;
 			}
-			rezeptAbteilungPanel.Controls.Add(label);
+
+            if (rezeptAbteilungNr != 1)
+            {
+                var label = new Label { Text = "<br/>" };
+                rezeptAbteilungPanel.Controls.Add(label);
+            }
+			
 			rezeptAbteilungPanel.Controls.Add(textbox);
 			Helper.InsertLineBreak(rezeptAbteilungPanel);
 		}
@@ -398,7 +404,7 @@ namespace RezeptVerwaltung.Web
 				rezeptAbteilungPanel.Controls.Add(textbox);
 
 				//Einheit
-				var dropdownlist = new DropDownList { ID = Helper.REZEPBEARBEITEN_IDENT_EINHEIT + Helper.REZEPBEARBEITEN_IDENT_NEU + rezeptAbteilungPanel.ID + zutatenAnzahl };
+                var dropdownlist = new DropDownList { ID = Helper.REZEPBEARBEITEN_IDENT_EINHEIT + Helper.REZEPBEARBEITEN_IDENT_NEU + rezeptAbteilungPanel.ID + zutatenAnzahl, Width = RezeptEinheitFeldBreite };
 				//leerer Eintrag
 				var listItem = new ListItem(string.Empty, string.Empty);
 				dropdownlist.Items.Add(listItem);

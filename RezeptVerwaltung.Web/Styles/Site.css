@@ -1,7 +1,7 @@
 ﻿/* DEFAULTS
 ----------------------------------------------------------*/
 
-body   
+body
 {
     background: #b6b7bc;
     font-size: .80em;
@@ -10,6 +10,7 @@ body
     padding: 0px;
     color: #696969;
 }
+
 
 a:link, a:visited
 {
@@ -75,18 +76,11 @@ h5, h6
     font-size: 1em;
 }
 
-/* this rule styles <h1> and <h2> tags that are the 
-first child of the left and right table columns */
-.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
-{
-    margin-top: 0px;
-}
-
 
 /* PRIMARY LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
 
-.page
+form.page
 {
     width: 960px;
     background-color: #fff;
@@ -94,7 +88,7 @@ first child of the left and right table columns */
     border: 1px solid #496077;
 }
 
-.header
+header
 {
     position: relative;
     margin: 0px;
@@ -103,7 +97,7 @@ first child of the left and right table columns */
     width: 100%;
 }
 
-.header h1
+header h1
 {
     font-weight: 700;
     margin: 0px;
@@ -114,36 +108,43 @@ first child of the left and right table columns */
     font-size: 2em;
 }
 
-.main
+article
 {
     padding: 0px 12px;
     margin: 12px 8px 8px 8px;
     min-height: 420px;
 }
 
-.leftCol
+article h1
 {
-    padding: 6px 0px;
-    margin: 12px 8px 8px 8px;
-    width: 200px;
-    min-height: 200px;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
-.footer
+article h2
+{
+    font-size: 1.2em;
+}
+
+
+footer
 {
     color: #4e5766;
-    padding: 8px 0px 0px 0px;
+    padding: 8px 8px;
     margin: 0px auto;
-    text-align: center;
+    text-align: left;
     line-height: normal;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 
 /* TAB MENU   
 ----------------------------------------------------------*/
 
-div.hideSkiplink
+nav
 {
+    clear:both;
     background-color:#3a4f63;
     width:100%;
 }
@@ -187,8 +188,13 @@ div.menu ul li a:active
     text-decoration: none;
 }
 
+
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
+.recipeWorkTop 
+{
+
+}
 
 fieldset
 {
