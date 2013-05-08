@@ -34,7 +34,7 @@ namespace RezeptVerwaltung.Web
         private void PrintSuchErgebnis(string seachString)
         {
             //bestehenden Text löschen
-            Table_Suchergebnis.Rows.Clear();
+            //Table_Suchergebnis.Rows.Clear();
 
 			using (var db = new rherzog_70515_rzvwContext())
             {
@@ -48,48 +48,37 @@ namespace RezeptVerwaltung.Web
                 //nichts gefunden
                 if (rezepte.Count == 0)
                 {
-                    var row = new TableRow();
-
-                    TableCell cell = new TableCell();
-                    cell.Text = "nichts gefunden...";
-                    row.Cells.Add(cell);
-                    Table_Suchergebnis.Rows.Add(row);
+                    Literal lit = new Literal {Text = Helper.DivPrependAppend("nichts gefunden...")};
+                    Panel_Suchergebnis.Controls.Add(lit);
                     return;
                 }
 
                 //darstellung ergebnis
                 foreach (var rezept in rezepte)
                 {
-                    var row = new TableRow();
-                    
-                    TableCell cell = null;
-
                     //rezept Name
-                    cell = new TableCell();
-                    cell.CssClass = "RezeptSuche_Rezept";
-                    HyperLink link = new HyperLink();
-                    link.NavigateUrl = "RezeptDetail.aspx?RezeptID="+rezept.ID;
-                    link.Text = rezept.Name;
-                    cell.Controls.Add(link);
-                    row.Cells.Add(cell);
+                    LinkButton linkButton = new LinkButton();
+                    linkButton.PostBackUrl = "RezeptDetail.aspx?RezeptID=" + rezept.ID;
+                    linkButton.CssClass = "RezeptSuche_Rezept";
+                    linkButton.Text = rezept.Name;
+                    Panel_Suchergebnis.Controls.Add(linkButton);
+                    Panel_Suchergebnis.Controls.Add(new Literal { Text = "&nbsp;&nbsp;&nbsp;" });
 
                     //Zutaten Liste
-                    cell = new TableCell();
-                    cell.CssClass = "RezeptSuche_Zutaten";
-                    var strBuilder = new StringBuilder();
+                    var sb = new StringBuilder();
 
                     for (int i = 0; i < rezept.RezeptZutats.Count; i++)
                     {
                         var zutats = (List<RezeptZutat>)rezept.RezeptZutats;
-                        strBuilder.Append(zutats[i].Zutat.Name);
+                        sb.Append(zutats[i].Zutat.Name);
 
                         if (i != rezept.RezeptZutats.Count() - 1)
-                            strBuilder.Append(", ");
+                            sb.Append(", ");
                     }
-                    cell.Text = strBuilder.ToString();
-                    row.Cells.Add(cell);
+                    Panel_Suchergebnis.Controls.Add(new Literal { Text = sb.ToString() });
 
-                    Table_Suchergebnis.Rows.Add(row);
+                    //Zeilenumbruch                    
+                    Panel_Suchergebnis.Controls.Add(new Literal { Text = "<br />" });
                 }
             }
         }

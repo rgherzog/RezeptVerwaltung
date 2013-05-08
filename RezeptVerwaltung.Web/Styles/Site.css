@@ -115,15 +115,27 @@ article
     min-height: 420px;
 }
 
+article h1
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+article h2
+{
+    font-size: 1.2em;
+}
 
 
 footer
 {
     color: #4e5766;
-    padding: 8px 0px 0px 0px;
+    padding: 8px 8px;
     margin: 0px auto;
-    text-align: center;
+    text-align: left;
     line-height: normal;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
 }
 
 
@@ -176,8 +188,13 @@ div.menu ul li a:active
     text-decoration: none;
 }
 
+
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
+.recipeWorkTop 
+{
+
+}
 
 fieldset
 {

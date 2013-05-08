@@ -7,6 +7,7 @@
     <title></title>
     <link rel="stylesheet" href="~/Styles/Site.css" media="screen" />
     <link rel="stylesheet" href="~/Styles/RezeptStyle.css" media="screen" />
+    <link rel="icon" href="~/images/favicon.ico" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -42,7 +43,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </article>
         <footer>
-        
+            <asp:Literal ID="Literal_footer" runat="server"/>
         </footer>
     </form>
 </body>

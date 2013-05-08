@@ -1,2 +1,36 @@
 ﻿.RezeptSuche_Rezept {font-weight: bold;}
 .RezeptSuche_Zutaten {font-style: italic; font-size: small;}
+
+/* REZEPT BEARBEITEN PAGE
+----------------------------------------------------------*/
+
+.floatLeft 
+{    
+    float: left
+}
+.floatRight 
+{
+    float: right
+}
+
+#recipeWorkZutaten
+{    
+    width: 500px; float: left
+}
+#recipeWorkUploadPicture
+{
+    width: 400px; float: right
+}
+
+#recipeSearchBox
+{ 
+    margin: 20px 0px 20px 0px
+}
+
+td, th {
+    font-size: .80em;
+}
+
+/*section, aside {
+    border: 1px solid red
+}*/

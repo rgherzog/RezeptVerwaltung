@@ -72,6 +72,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\favicon.ico" />
     <Content Include="Kategorien.aspx" />
     <Content Include="Einheiten.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
