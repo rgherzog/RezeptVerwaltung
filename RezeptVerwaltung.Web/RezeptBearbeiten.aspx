@@ -39,7 +39,7 @@
         <br />
         <div>
             <asp:FileUpload ID="FileUpload_RezeptBild" runat="server" /><br/>
-            <asp:LinkButton ID="LinkButton_RezeptBild" runat="server" Text="Bild hochladen" onclick="ButtonRezeptBildClick" />
+            <asp:LinkButton ID="LinkButton_RezeptBild" runat="server" Text="Bild hochladen" onclick="ButtonRezeptBildClick" CausesValidation="false"/>
             <asp:Label ID="Label_RezeptBild" runat="server" Text=""></asp:Label>
         </div>
     </aside>
