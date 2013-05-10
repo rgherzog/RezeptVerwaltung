@@ -56,6 +56,7 @@
         <div>
             <asp:Button ID="Button_speichern" runat="server" Text="speichern" onclick="ButtonSpeichernClick"/>
             <asp:Button ID="Button_abbrechen" runat="server" Text="zurück" onclick="ButtonAbbrechenClick" />
+            <asp:Button ID="Button_löschen" runat="server" Text="löschen" onclick="ButtonLöschenClick" />
         </div>
     </section>    
 </asp:Content>

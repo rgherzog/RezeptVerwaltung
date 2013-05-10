@@ -84,6 +84,7 @@ namespace RezeptVerwaltung.Web
 						rezept = new Rezept();
 						this.Literal_Überschrift.Text = "Neues Rezept";
 						this.Button_abbrechen.Visible = false;
+                        this.Button_löschen.Visible = false;
 					}
 
 					this.DisplayZutatenGroupedByRezeptabteilungen(db, rezept, false);
@@ -527,6 +528,19 @@ namespace RezeptVerwaltung.Web
 			}
 		}
 
+        protected void ButtonLöschenClick(object sender, EventArgs e)
+        { 
+            if (RezeptIdForEditing == 0) return;
+
+            using(var db = new rherzog_70515_rzvwContext())
+            {
+                var rezept = db.Rezepts.Where(d => d.ID == rezeptIdForEditing).First();
+                db.Rezepts.Remove(rezept);
+                db.SaveChanges();
+            }
+
+            Response.Redirect("RezeptSuche.aspx");
+        }
 
 		protected void NeueZutatButtonKlick(object sender, EventArgs e)
 		{
