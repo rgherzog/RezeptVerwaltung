@@ -279,6 +279,16 @@ namespace RezeptVerwaltung.Web
             }
 			
 			rezeptAbteilungPanel.Controls.Add(textbox);
+
+            //Delete button for Rezeptabteilung
+            if (rezeptAbteilung != null)
+            {
+                var imageButton = new ImageButton { ID = Helper.REZEPBEARBEITEN_IDENT_REZEPABTEILUNG_DELETE + rezeptAbteilung.ID, ImageUrl = "~/images/delete-icon_small.png", ImageAlign = ImageAlign.Middle };
+                imageButton.Click += ImageButtonRezeptAbteilungDeleteClick;
+                rezeptAbteilungPanel.Controls.Add(new Literal { Text = "&nbsp;" });
+                rezeptAbteilungPanel.Controls.Add(imageButton);
+            }
+            
 			Helper.InsertLineBreak(rezeptAbteilungPanel);
 		}
 
@@ -558,9 +568,20 @@ namespace RezeptVerwaltung.Web
             DisplaySingleRezeptabteilungNeu(null);
 		}
 
-		protected void LinkButtonRezeptAbteilungDeleteClick(object sender, EventArgs e)
+		protected void ImageButtonRezeptAbteilungDeleteClick(object sender, EventArgs e)
 		{
-			
+            var imageButton = (ImageButton)sender;
+            var rezeptAbteilungID = Int32.Parse(Helper.IsolateRezepAbteilungIDFromRezeptabteilungDeleteString(imageButton.ID));
+
+            using(var db = new rherzog_70515_rzvwContext())
+            {
+                var rezeptAbteilung = db.Rezeptabteilungs.Where(d => d.ID == rezeptAbteilungID).First();
+                db.Rezeptabteilungs.Remove(rezeptAbteilung);
+                db.SaveChanges();
+            }
+
+            //Page refresh
+            Response.Redirect(Request.Url.ToString());
 		}
 
 		#endregion

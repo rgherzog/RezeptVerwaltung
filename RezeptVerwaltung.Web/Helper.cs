@@ -15,6 +15,7 @@ namespace RezeptVerwaltung.Web
 		public const string REZEPBEARBEITEN_IDENT_MENGE = "_Menge";
 		public const string REZEPBEARBEITEN_IDENT_EINHEIT = "_Einheit";
 		public const string REZEPBEARBEITEN_IDENT_REZEPABTEILUNG = "Rezeptabteilung";
+        public const string REZEPBEARBEITEN_IDENT_REZEPABTEILUNG_DELETE = "RezeptabteilungDelete";
 		public const string REZEPBEARBEITEN_IDENT_REZEPABTEILUNG_PANEL = "RezeptabteilungPanel";
 		public const string REZEPBEARBEITEN_IDENT_NEU = "neu";
 		public const string REZEPBEARBEITEN_IDENT_NEUE_ZUTAT_BUTTON = "NeueZutatButton";
@@ -88,7 +89,7 @@ namespace RezeptVerwaltung.Web
 			panel.Controls.Add(literalBreak);
 		}
 
-		//Isolates the RezeptAbteilung ID
+		//Isolates the RezeptAbteilungPanel ID
 		public static string IsolateRezepAbteilungPanelIDFromEventtargetString(string eventTarget)
 		{
 			if (eventTarget == null || !eventTarget.Contains(Helper.REZEPBEARBEITEN_IDENT_NEUE_ZUTAT_BUTTON)) return null;
@@ -97,6 +98,16 @@ namespace RezeptVerwaltung.Web
 			endIndex += REZEPBEARBEITEN_IDENT_NEUE_ZUTAT_BUTTON.Length;
 			return eventTarget.Remove(0, endIndex);
 		}
+
+        //Isolates the RezeptAbteilung ID
+        public static string IsolateRezepAbteilungIDFromRezeptabteilungDeleteString(string ControlID)
+        {
+            if (ControlID == null || !ControlID.Contains(Helper.REZEPBEARBEITEN_IDENT_REZEPABTEILUNG_DELETE)) return null;
+
+            var endIndex = ControlID.IndexOf(Helper.REZEPBEARBEITEN_IDENT_REZEPABTEILUNG_DELETE, StringComparison.Ordinal);
+            endIndex += Helper.REZEPBEARBEITEN_IDENT_REZEPABTEILUNG_DELETE.Length;
+            return ControlID.Remove(0, endIndex);
+        }
 
         public static Control FindControl(Control parentControl, string partOfControlID)
         {
