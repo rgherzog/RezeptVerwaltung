@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RezeptBearbeiten.aspx.cs" Inherits="RezeptVerwaltung.Web.RezeptBearbeiten" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RezeptBearbeiten.aspx.cs" Inherits="RezeptVerwaltung.Web.RezeptBearbeiten" ValidateRequest="false"%>
 <%@ OutputCache Location="None" VaryByParam="None" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -46,6 +46,17 @@
     <section class="clear">
         <br />
         <h2>Anleitung</h2>
+        <script type="text/javascript" src="Scripts/tinymce/tinymce.min.js"></script>
+        <script type="text/javascript">
+            tinymce.init({
+                selector: "textarea",
+                force_br_newlines : true,
+                force_p_newlines: false,
+                forced_root_block: false,
+                menubar: false,
+                statusbar: false
+            });
+        </script>
         <div>
             <asp:TextBox ID="TextBox_Anleitung" runat="server" Width="900px" Height="150px" TextMode="MultiLine"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator_TextBox_Anleitung" runat="server" ErrorMessage="*" ControlToValidate="TextBox_Anleitung" Text="*"></asp:RequiredFieldValidator>
