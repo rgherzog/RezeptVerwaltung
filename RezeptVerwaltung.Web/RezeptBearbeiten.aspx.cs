@@ -707,7 +707,15 @@ namespace RezeptVerwaltung.Web
 					//Zutat Menge
 					var mengeCtrl = this.GetMengeTextbox(idFound, mengeCtrlList);
 					//Bruchzahlen umwandeln
-					rezZutat.Menge = mengeCtrl.Text;
+                    if (!String.IsNullOrEmpty(mengeCtrl.Text))
+                    {
+                        rezZutat.Menge = mengeCtrl.Text;
+                    }
+                    else
+                    {
+                        rezZutat.MengeVon = null;
+                        rezZutat.MengeBis = null;
+                    }
 
 					//Zutat Einheit
 					var einheitCtrl = this.GetEinheitDropDownList(idFound, einheitCtrlList);
@@ -783,7 +791,7 @@ namespace RezeptVerwaltung.Web
 			
 			//zugeh. Menge suchen
 			var mengeCtrlNew = mengeCtrlListNew.First(d => d.ID.Contains(""+idNummer));
-			if (!string.IsNullOrEmpty(zutatCtrlNew.Text) && !string.IsNullOrEmpty(mengeCtrlNew.Text))
+			if (!string.IsNullOrEmpty(zutatCtrlNew.Text))
 			{
                 var rezZutat = new RezeptZutat { Menge = mengeCtrlNew.Text, Rezeptabteilung = rezeptAbteilung };
 				var zutat = new Zutat {Name = zutatCtrlNew.Text};

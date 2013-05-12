@@ -11,9 +11,16 @@ namespace RezeptVerwaltung.DataAccess.Models
 		{
 			get
 			{
-				return MengeBis == null
-				       	? FractionConverter.Convert((decimal) MengeVon)
-				       	: FractionConverter.Convert((decimal) MengeVon) + " - " + FractionConverter.Convert((decimal) MengeBis);
+                if (MengeBis == null && MengeVon != null)
+                {
+                    return FractionConverter.Convert((decimal)MengeVon);
+                }
+                else if(MengeBis != null && MengeVon != null)
+                {
+                    return FractionConverter.Convert((decimal) MengeVon) + " - " + FractionConverter.Convert((decimal) MengeBis);
+                }
+
+                return null;
 			}
 			set {
 				var stringComplete = value;
