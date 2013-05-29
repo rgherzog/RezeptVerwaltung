@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RezeptBearbeiten.aspx.cs" Inherits="RezeptVerwaltung.Web.RezeptBearbeiten" ValidateRequest="false"%>
 <%@ OutputCache Location="None" VaryByParam="None" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
