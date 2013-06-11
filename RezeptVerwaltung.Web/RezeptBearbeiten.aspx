@@ -10,19 +10,19 @@
     <section>
         <!--Rezept-->
         <asp:TextBox ID="TextBox_Rezept" runat="server" Width="100%"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator_TextBox_Rezept" runat="server" ErrorMessage="*" ControlToValidate="TextBox_Rezept" Text="*"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="RequiredFieldValidator_TextBox_Rezept" runat="server" ErrorMessage="!!!" ControlToValidate="TextBox_Rezept" Text="*"></asp:RequiredFieldValidator>
 
         <br/>
         <div class="floatLeft">
             Das Rezept ist für 
             <asp:TextBox ID="TextBox_Menge" runat="server" Width="30px"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator_TextBox_Menge" runat="server" ErrorMessage="*" ControlToValidate="TextBox_Menge" Text="*"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator_TextBox_Menge" runat="server" ErrorMessage="!!!" ControlToValidate="TextBox_Menge" Text="*"></asp:RequiredFieldValidator>
             <asp:DropDownList ID="DropDownList_AnzahlEinheit" runat="server"></asp:DropDownList>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator_DropDownList_AnzahlEinheit" runat="server" ErrorMessage="*" ControlToValidate="DropDownList_AnzahlEinheit" Text="*"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator_DropDownList_AnzahlEinheit" runat="server" ErrorMessage="!!!" ControlToValidate="DropDownList_AnzahlEinheit" Text="*"></asp:RequiredFieldValidator>
         </div>                    
         <div>
             Kategorie: <asp:DropDownList ID="DropDownList_Kategorie" runat="server"></asp:DropDownList>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator_DropDownList_Kategorie" runat="server" ErrorMessage="*" ControlToValidate="DropDownList_Kategorie" Text="*"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator_DropDownList_Kategorie" runat="server" ErrorMessage="!!!" ControlToValidate="DropDownList_Kategorie" Text="*"></asp:RequiredFieldValidator>
         </div>
     </section>
     <section id="recipeWorkZutaten" class="clear" style="text-align:left">
@@ -60,7 +60,7 @@
         </script>
         <div>
             <asp:TextBox ID="TextBox_Anleitung" runat="server" Width="900px" Height="150px" TextMode="MultiLine"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator_TextBox_Anleitung" runat="server" ErrorMessage="*" ControlToValidate="TextBox_Anleitung" Text="*"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator_TextBox_Anleitung" runat="server" ErrorMessage="!!!" ControlToValidate="TextBox_Anleitung" Text="*"></asp:RequiredFieldValidator>
         </div>
     </section>    
     <section>
