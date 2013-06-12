@@ -76,10 +76,12 @@
     <Content Include="App_Data\ASPNETDB_log.ldf">
       <DependentUpon>ASPNETDB.MDF</DependentUpon>
     </Content>
+    <Content Include="default.aspx" />
+    <Content Include="default.html" />
     <Content Include="images\delete-icon_small.png" />
     <Content Include="images\favicon.ico" />
-    <Content Include="Kategorien.aspx" />
-    <Content Include="Einheiten.aspx" />
+    <Content Include="Pages\Admins\Kategorien.aspx" />
+    <Content Include="Pages\Admins\Einheiten.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
@@ -88,8 +90,8 @@
     <Content Include="images\delete.jpg" />
     <Content Include="images\file_edit_originalsize.png" />
     <Content Include="images\file_edit.png" />
-    <Content Include="RezeptBearbeiten.aspx" />
-    <Content Include="RezeptDetail.aspx" />
+    <Content Include="Pages\Users\RezeptBearbeiten.aspx" />
+    <Content Include="Pages\RezeptDetail.aspx" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\anchor\plugin.min.js" />
@@ -166,7 +168,7 @@
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Styles\Site.css" />
-    <Content Include="RezeptSuche.aspx" />
+    <Content Include="Pages\RezeptSuche.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -183,18 +185,25 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Kategorien.aspx.cs">
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Admins\Kategorien.aspx.cs">
       <DependentUpon>Kategorien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Kategorien.aspx.designer.cs">
+    <Compile Include="Pages\Admins\Kategorien.aspx.designer.cs">
       <DependentUpon>Kategorien.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Einheiten.aspx.cs">
+    <Compile Include="Pages\Admins\Einheiten.aspx.cs">
       <DependentUpon>Einheiten.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Einheiten.aspx.designer.cs">
+    <Compile Include="Pages\Admins\Einheiten.aspx.designer.cs">
       <DependentUpon>Einheiten.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
@@ -225,44 +234,44 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Helper.cs" />
-    <Compile Include="RezeptBearbeiten.aspx.cs">
+    <Compile Include="Pages\Helper.cs" />
+    <Compile Include="Pages\Users\RezeptBearbeiten.aspx.cs">
       <DependentUpon>RezeptBearbeiten.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RezeptBearbeiten.aspx.designer.cs">
+    <Compile Include="Pages\Users\RezeptBearbeiten.aspx.designer.cs">
       <DependentUpon>RezeptBearbeiten.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RezeptDetail.aspx.cs">
+    <Compile Include="Pages\RezeptDetail.aspx.cs">
       <DependentUpon>RezeptDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RezeptDetail.aspx.designer.cs">
+    <Compile Include="Pages\RezeptDetail.aspx.designer.cs">
       <DependentUpon>RezeptDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="RezeptSuche.aspx.cs">
+    <Compile Include="Pages\RezeptSuche.aspx.cs">
       <DependentUpon>RezeptSuche.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="RezeptSuche.aspx.designer.cs">
+    <Compile Include="Pages\RezeptSuche.aspx.designer.cs">
       <DependentUpon>RezeptSuche.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
+    <Compile Include="Pages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="Pages\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="Account\Web.config" />
-    <Content Include="Site.Master" />
+    <Content Include="Pages\Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RezeptVerwaltung.DataAccess\RezeptVerwaltung.DataAccess.csproj">
@@ -274,11 +283,29 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="RezeptBearbeiten.aspx.resx">
+    <EmbeddedResource Include="Pages\Users\RezeptBearbeiten.aspx.resx">
       <DependentUpon>RezeptBearbeiten.aspx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pages\Users\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Pages\Admins\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Pages\Admins\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Pages\Admins\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Pages\Users\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Pages\Users\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\Profile USB Stick.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <Content Include="Scripts\tinymce\langs\readme.md" />

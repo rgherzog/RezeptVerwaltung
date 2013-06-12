@@ -13,5 +13,11 @@ namespace RezeptVerwaltung.Web.Account
         {
             RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
         }
+
+        protected void myLogin_LoginError(object sender, EventArgs e)
+        {
+            // Determine why the user could not login...
+             LoginUser.FailureText = "Your login attempt was not successful. Please try again.";
+        }
     }
 }

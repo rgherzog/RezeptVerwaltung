@@ -18,6 +18,18 @@ namespace RezeptVerwaltung.Web.Account
 
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {
+            //MembershipCreateStatus p = MembershipCreateStatus.Success;
+            //Membership.CreateUser(RegisterUser.UserName,
+            //RegisterUser.Password, RegisterUser.Email,
+            //RegisterUser.Question, RegisterUser.Answer, true, out p);
+
+            //Membership.CreateUser(RegisterUser.UserName, RegisterUser.Password, RegisterUser.Email);
+
+            if (!User.IsInRole("Users"))
+            {
+                Roles.AddUserToRole(RegisterUser.UserName, "Users");
+            }
+
             FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
 
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;

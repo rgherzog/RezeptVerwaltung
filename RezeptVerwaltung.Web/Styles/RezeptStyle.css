@@ -19,7 +19,8 @@
 }
 #recipeWorkUploadPicture
 {
-    width: 400px; float: right
+    width: 400px; float: right;
+    /*text-align: right;*/
 }
 
 #recipeSearchBox
@@ -32,5 +33,6 @@ td, th {
 }
 
 /*section, aside {
-    border: 1px solid red
+    border: 1px solid red;
 }*/
+
